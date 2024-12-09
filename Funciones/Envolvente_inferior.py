@@ -23,7 +23,7 @@ def envolvente_inferior(nombre_cometa, conectado_a_internet):
     curva_de_luz_procesada_df = tratamiento_de_datos_con_efemerides(curva_de_luz_cruda_df, ephemeris)
 
     # Promedio movil
-    curva_de_luz_externa_df = promedio_movil_minimo(curva_de_luz_procesada_df)
+    curva_de_luz_interna_df = promedio_movil_minimo(curva_de_luz_procesada_df)
     
     # Curva de luz cruda.
     curva_de_luz_cruda(nombre_cometa, curva_de_luz_cruda_df, 'Envolvente_inferior')
@@ -32,10 +32,10 @@ def envolvente_inferior(nombre_cometa, conectado_a_internet):
     curva_de_luz_reducida(nombre_cometa, curva_de_luz_procesada_df, 'Envolvente_inferior')
 
     # Curva de luz minima
-    curva_de_luz_interna(nombre_cometa, curva_de_luz_externa_df, 'Envolvente_inferior')
+    curva_de_luz_interna(nombre_cometa, curva_de_luz_interna_df, 'Envolvente_inferior')
 
     # Gráfica de luz promediada
-    curva_de_luz_interna_promediada(nombre_cometa, curva_de_luz_externa_df, 'Envolvente_inferior')
+    curva_de_luz_interna_promediada(nombre_cometa, curva_de_luz_interna_df, 'Envolvente_inferior')
 
 if __name__ == '__main__':
     envolvente_inferior()
