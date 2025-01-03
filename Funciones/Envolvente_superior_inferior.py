@@ -7,25 +7,32 @@ from Funciones.Descargar_efemerides import descargar_efemerides
 # from Funciones.Conectar_con_API_de_MPC import conectar_con_API_de_MPC
 from Funciones.Obtener_perihelio import obtener_perihelio
 from Funciones.Tratamiento_de_datos_con_efemerides import tratamiento_de_datos_con_efemerides
+from Funciones.Promedio_movil_maximo import promedio_movil_maximo
 from Funciones.Promedio_movil_minimo import promedio_movil_minimo
 from Funciones.Curva_de_luz_cruda import curva_de_luz_cruda
 from Funciones.Curva_de_luz_reducida import curva_de_luz_reducida
+from Funciones.Curva_de_luz_externa_promediada import curva_de_luz_externa_promediada
+from Funciones.Curva_de_luz_externa import curva_de_luz_externa
 from Funciones.Curva_de_luz_interna_promediada import curva_de_luz_interna_promediada
 from Funciones.Curva_de_luz_interna import curva_de_luz_interna
+from Funciones.Curvas_de_luz_interna_externa import curvas_de_luz_interna_externa
 
-def envolvente_inferior(nombre_cometa: str, fecha_inicial: str, conectado_a_internet: bool) -> tuple[object]:
+def envolvente_superior_inferior(nombre_cometa: str, fecha_inicial: str)-> tuple[object]:
     '''
     Procesa los datos del cometa especificado para calcular la 
     envolvente inferior de la curva de luz del cometa especificado.
     Retorna: 
     [1] curva_de_luz_cruda_df,
     [2] curva_de_luz_procesada_df, 
-    [3] curva_de_luz_interna_df.
+    [3] curva_de_luz_externa_df,
+    [4] curva_de_luz_interna_df.
     '''
 
+    conectado_a_internet = verificar_conexion() 
+
     # Verificar cometa en la base de datos y conexión a internet
-    if verificar_conexion() and verificar_cometa(nombre_cometa, conectado_a_internet):
-    
+    if conectado_a_internet and verificar_cometa(nombre_cometa, conectado_a_internet):
+        
         # Conexión con la API de COBS
         content = conectar_con_API_de_COBS_Observaciones(nombre_cometa, fecha_inicial, conectado_a_internet)
 
@@ -45,6 +52,7 @@ def envolvente_inferior(nombre_cometa: str, fecha_inicial: str, conectado_a_inte
         curva_de_luz_procesada_df = tratamiento_de_datos_con_efemerides(curva_de_luz_cruda_df, efemerides, perihelio)
 
         # Promedio movil
+        curva_de_luz_externa_df = promedio_movil_maximo(curva_de_luz_procesada_df)
         curva_de_luz_interna_df = promedio_movil_minimo(curva_de_luz_procesada_df)
 
         # Generar Curva de luz cruda
@@ -53,11 +61,20 @@ def envolvente_inferior(nombre_cometa: str, fecha_inicial: str, conectado_a_inte
         # Generar Curva de luz reducida
         curva_de_luz_reducida(nombre_cometa, curva_de_luz_procesada_df)
 
+        # Generar Curva de luz externa
+        curva_de_luz_externa(nombre_cometa, curva_de_luz_externa_df)
+
         # Generar Curva de luz interna
         curva_de_luz_interna(nombre_cometa, curva_de_luz_interna_df)
-        
+
+        # Generar Curva de luz externa promediada
+        curva_de_luz_externa_promediada(nombre_cometa, curva_de_luz_externa_df)
+
         # Generar Curva de luz interna promediada
         curva_de_luz_interna_promediada(nombre_cometa, curva_de_luz_interna_df)
 
+        # Generar Curva de luz interna y externa 
+        curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_de_luz_interna_df)
+
 if __name__ == '__main__':
-    envolvente_inferior()
+    envolvente_superior_inferior()
