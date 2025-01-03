@@ -20,7 +20,7 @@ def conectar_con_API_de_COBS_Observaciones(nombre_cometa: str, fecha_inicial: st
                 content = content_pagina_1['objects']
 
                 for pagina in range(2, numero_de_paginas + 1):
-                    Link_cops_API_pagina = f'https://cobs.si/api/obs_list.api?des={nombre_cometa}&format=json&from_date={fecha_inicial}&page={pagina}&exclude_faint=False&exclude_not_accurate=False'
+                    Link_cops_API_pagina = f'https://cobs.si/api/obs_list.api?des={nombre_cometa}&format=json&from_date={fecha_inicial} 00:00&page={pagina}&exclude_faint=False&exclude_not_accurate=False'
                     response_pagina = requests.get(Link_cops_API_pagina)
                     content_pagina = response_pagina.json()
                     content.extend(content_pagina['objects'])
