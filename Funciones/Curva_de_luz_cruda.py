@@ -15,5 +15,7 @@ def curva_de_luz_cruda(nombre_cometa,curva_de_luz_cruda_df):
     # fig.write_image(ruta_archivos_graficas)
     fig.show()
 
-    if __name__ == '__main__':
-        curva_de_luz_cruda()
+    print('✅ Creada: curva de luz cruda.')
+
+if __name__ == '__main__':
+    curva_de_luz_cruda()

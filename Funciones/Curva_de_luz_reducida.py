@@ -15,5 +15,7 @@ def curva_de_luz_reducida(nombre_cometa, curva_de_luz_procesada_df):
     # fig.write_image(ruta_archivos_graficas)
     fig.show()
 
-    if __name__ == '__main__':
-        curva_de_luz_reducida()
+    print('✅ Creada: curva de luz reducida.')
+
+if __name__ == '__main__':
+    curva_de_luz_reducida()

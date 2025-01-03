@@ -15,5 +15,7 @@ def curva_de_luz_externa(nombre_cometa, curva_de_luz_externa_df):
     # fig.write_image(ruta_archivos_graficas)
     fig.show()
 
+    print('✅ Creada: curva de luz externa.')
+
 if __name__ == '__main__':
     curva_de_luz_externa()

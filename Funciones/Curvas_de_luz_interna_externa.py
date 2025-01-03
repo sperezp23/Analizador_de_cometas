@@ -9,3 +9,8 @@ def curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_
     fig.update_yaxes(autorange="reversed")
     fig.update_layout(template='plotly_dark', xaxis_title='Observation Date', yaxis_title='Averaged Magnitude', title = f'Max/Min Averaged Lightcurve of comet {nombre_cometa}')
     fig.show()
+
+    print('✅ Creada: curva de luz Interna-Externa.')
+
+if __name__ == '__main__':
+    curvas_de_luz_interna_externa()
