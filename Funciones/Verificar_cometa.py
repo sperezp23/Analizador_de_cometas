@@ -15,7 +15,7 @@ def verificar_cometa(cometa_buscado, conectado_a_internet):
         return True
     
     else:
-        print(f'🛑 El cometa buscado, {cometa_buscado}, no se se encuentra en la base de datos.')
+        print(f'🛑 El cometa buscado, {cometa_buscado}, no se encuentra en la base de datos.')
         return False
 
 if __name__ == '__main__':
