@@ -1,7 +1,7 @@
 # Librerías
 import requests
 
-def verificar_conexion():
+def verificar_conexion() -> None:
     try:
         requests.get("http://www.google.com", timeout=5)
         print(f'{'\n'*2}✅ Conectado a internet.\n{'-'*40}')
