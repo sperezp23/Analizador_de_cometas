@@ -13,9 +13,9 @@ def main() -> None:
     '''
 
     #  Variables
-    mensaje_de_inicio = f'{'\n'*2}{'='*32}\n|| GENERADOR DE CURVAS DE LUZ ||\n{'='*32}'
     opcion_elegida: str = '-1'
     opciones : str = '12345'
+    mensaje_de_inicio: str = f'{'\n'*2}{'='*32}\n|| GENERADOR DE CURVAS DE LUZ ||\n{'='*32}'
     texto_opciones : str  = f'''Elija una de las siguientes opciones:
 [1] : Buscar un comenta.
 [2] : Graficar curvas de luz externas (Envolvente superior).
