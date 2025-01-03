@@ -38,8 +38,8 @@ Ingrese aquí su elección: '''
         if opcion_elegida == '1':
             nombre_cometa = input('\nIngrese el nombre del cometa que desea buscar o, "volver_menu" para regresar: ')
 
-            if nombre_cometa != 'volver_menu' and verificar_conexion():
-                buscar_cometa(nombre_cometa, conectado_a_internet)
+            if nombre_cometa != 'volver_menu':
+                buscar_cometa(nombre_cometa)
         
         # Graficar curvas de luz externa 
         elif opcion_elegida == '2':
