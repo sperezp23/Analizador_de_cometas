@@ -28,7 +28,7 @@ Ingrese aquí su elección: '''
     conectado_a_internet = verificar_conexion()
 
     # Ciclo principal
-    while (conectado_a_internet) and ( not(Terminar)):
+    while conectado_a_internet:
 
         # Leer opcion elegida
         while opcion_elegida not in opciones:
@@ -44,6 +44,7 @@ Ingrese aquí su elección: '''
         # Graficar curvas de luz externa 
         elif opcion_elegida == '2':
             nombre_cometa = input('\nIngrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
+            fecha_inicial = input('\nIngrese la fecha inicial para el análisis en el formato AAAA-MM-DD: ')
 
             if nombre_cometa != 'volver_menu' and verificar_cometa(nombre_cometa, conectado_a_internet):
                 envolvente_superior(nombre_cometa, conectado_a_internet)
@@ -51,6 +52,7 @@ Ingrese aquí su elección: '''
         # Graficar curvas de luz interna
         elif opcion_elegida == '3':
             nombre_cometa = input('\nIngrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
+            fecha_inicial = input('\nIngrese la fecha inicial para el análisis en el formato AAAA-MM-DD: ')
 
             if nombre_cometa != 'volver_menu' and verificar_cometa(nombre_cometa, conectado_a_internet):
                 envolvente_inferior(nombre_cometa, conectado_a_internet)
@@ -58,8 +60,8 @@ Ingrese aquí su elección: '''
         # Graficar ambas curvas de luz interna y externa
         elif opcion_elegida == '4':
             nombre_cometa = input('\nIngrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
-            fecha_inicial = input('\nIngrese la fecha inicial para el análisis en el formato AAAA-MM-DD')
-            
+            fecha_inicial = input('\nIngrese la fecha inicial para el análisis en el formato AAAA-MM-DD: ')
+
             if nombre_cometa != 'volver_menu' and verificar_cometa(nombre_cometa, conectado_a_internet):
                 envolvente_superior_inferior(nombre_cometa, fecha_inicial)
 
