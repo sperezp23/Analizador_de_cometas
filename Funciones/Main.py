@@ -13,7 +13,7 @@ def main() -> None:
     '''
 
     #  Variables
-    Terminar : bool = False
+    mensaje_de_inicio = f'{'\n'*2}{'='*32}\n|| GENERADOR DE CURVAS DE LUZ ||\n{'='*32}'
     opcion_elegida: str = '-1'
     opciones : str = '12345'
     texto_opciones : str  = f'''Elija una de las siguientes opciones:
@@ -25,7 +25,7 @@ def main() -> None:
 Ingrese aquí su elección: '''
     
     # Mensaje de inicio.
-    print(f'{'\n'*2}{'='*32}\n|| GENERADOR DE CURVAS DE LUZ ||\n{'='*32}')
+    print(mensaje_de_inicio)
     
     # Verificar la conexión a internet.
     conectado_a_internet = verificar_conexion()
@@ -49,7 +49,7 @@ Ingrese aquí su elección: '''
             nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
             fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD: ')
 
-            if nombre_cometa != 'volver_menu' and verificar_cometa(nombre_cometa, conectado_a_internet):
+            if nombre_cometa != 'volver_menu':
                 envolvente_superior(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Graficar curvas de luz interna
@@ -57,7 +57,7 @@ Ingrese aquí su elección: '''
             nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
             fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD: ')
 
-            if nombre_cometa != 'volver_menu' and verificar_cometa(nombre_cometa, conectado_a_internet):
+            if nombre_cometa != 'volver_menu':
                 envolvente_inferior(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Graficar ambas curvas de luz interna y externa
@@ -65,13 +65,16 @@ Ingrese aquí su elección: '''
             nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
             fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD: ')
 
-            if nombre_cometa != 'volver_menu' and verificar_cometa(nombre_cometa, conectado_a_internet):
+            if nombre_cometa != 'volver_menu':
                 envolvente_superior_inferior(nombre_cometa, fecha_inicial)
 
         # Finalizar programa
         elif opcion_elegida == '5':
             print('\nPrograma finalizado por el usuario.')
             break
+        
+        # Mensaje de inicio
+        print(mensaje_de_inicio)
 
         # Resetear opción elegida
         opcion_elegida = '-1'
