@@ -60,7 +60,5 @@ def envolvente_superior(nombre_cometa: str, fecha_inicial: str, conectado_a_inte
         # Generar Curva de luz externa promediada
         curva_de_luz_externa_promediada(nombre_cometa, curva_de_luz_externa_df)
 
-        # curva_de_luz_procesada_df, curva_de_luz_externa_df
-
 if __name__ == '__main__':
     envolvente_superior()
