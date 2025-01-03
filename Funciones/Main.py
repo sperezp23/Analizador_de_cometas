@@ -24,6 +24,9 @@ def main() -> None:
 [5] : Finalizar programa.\n
 Ingrese aquí su elección: '''
     
+    # Mensaje de inicio.
+    print(f'{'\n'*2}{'='*32}\n|| GENERADOR DE CURVAS DE LUZ ||\n{'='*32}')
+    
     # Verificar la conexión a internet.
     conectado_a_internet = verificar_conexion()
 
