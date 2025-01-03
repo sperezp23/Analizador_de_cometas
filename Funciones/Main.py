@@ -47,7 +47,7 @@ Ingrese aquí su elección: '''
             fecha_inicial = input('\nIngrese la fecha inicial para el análisis en el formato AAAA-MM-DD: ')
 
             if nombre_cometa != 'volver_menu' and verificar_cometa(nombre_cometa, conectado_a_internet):
-                envolvente_superior(nombre_cometa, conectado_a_internet)
+                envolvente_superior(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Graficar curvas de luz interna
         elif opcion_elegida == '3':
