@@ -14,7 +14,7 @@ from Funciones.Curva_de_luz_externa_promediada import curva_de_luz_externa_prome
 from Funciones.Curva_de_luz_externa import curva_de_luz_externa
 
 
-def envolvente_superior(nombre_cometa: str, fecha_inicial, conectado_a_internet: bool) -> None:
+def envolvente_superior(nombre_cometa: str, fecha_inicial: str, conectado_a_internet: bool) -> None:
     '''
     Procesa los datos del cometa especificado para calcular la 
     envolvente inferior de la curva de luz del cometa especificado.
@@ -54,11 +54,11 @@ def envolvente_superior(nombre_cometa: str, fecha_inicial, conectado_a_internet:
         # Generar Curva de luz reducida
         curva_de_luz_reducida(nombre_cometa, curva_de_luz_procesada_df)
 
-        # Generar Curva de luz externa promediada
-        curva_de_luz_externa_promediada(nombre_cometa, curva_de_luz_externa_df)
-        
         # Generar Curva de luz externa
         curva_de_luz_externa(nombre_cometa, curva_de_luz_externa_df)
+        
+        # Generar Curva de luz externa promediada
+        curva_de_luz_externa_promediada(nombre_cometa, curva_de_luz_externa_df)
 
         # curva_de_luz_procesada_df, curva_de_luz_externa_df
 
