@@ -13,7 +13,6 @@ from Funciones.Curva_de_luz_reducida import curva_de_luz_reducida
 from Funciones.Curva_de_luz_externa_promediada import curva_de_luz_externa_promediada
 from Funciones.Curva_de_luz_externa import curva_de_luz_externa
 
-
 def envolvente_superior(nombre_cometa: str, fecha_inicial: str, conectado_a_internet: bool) -> None:
     '''
     Procesa los datos del cometa especificado para calcular la 
