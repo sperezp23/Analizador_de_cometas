@@ -1,7 +1,6 @@
 # %% Funciones  
 from Funciones.Verificar_conexion import verificar_conexion
 from Funciones.Buscar_cometa import buscar_cometa
-from Funciones.Verificar_cometa import verificar_cometa
 from Funciones.Envolvente_superior import envolvente_superior
 from Funciones.Envolvente_inferior import envolvente_inferior
 from Funciones.Envolvente_superior_inferior import envolvente_superior_inferior
