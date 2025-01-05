@@ -12,7 +12,8 @@ def curva_de_luz_cruda(nombre_cometa,curva_de_luz_cruda_df):
 
     fig = px.scatter(curva_de_luz_cruda_df, x='obs_date', y='magnitude', color='obs_method_key', template= 'plotly_dark', labels= labels, title= titulo)
     fig.update_yaxes(autorange="reversed")
-    fig.write_image(ruta_archivos_graficas)
+    fig.write_image(ruta_archivos_graficas, width = 1500, height = 700)
+    fig.write_html(ruta_archivos_graficas.replace('png', 'html'))
     fig.show()
 
     print('✅ Creada: curva de luz cruda.')

@@ -13,7 +13,8 @@ def curva_de_luz_interna_promediada(nombre_cometa, curva_de_luz_externa_df):
     fig = px.scatter(curva_de_luz_externa_df, x='delta_t', y='promedio_movil', template= 'plotly_dark', labels= labels, title= titulo)
     fig.update_traces(marker=dict(color='red', size=6, line=dict(width=1, color='DarkSlateGrey')))
     fig.update_yaxes(autorange="reversed")
-    fig.write_image(ruta_archivos_graficas)
+    fig.write_image(ruta_archivos_graficas, width = 1500, height = 700)
+    fig.write_html(ruta_archivos_graficas.replace('png', 'html'))
     fig.show()
 
     print('✅ Creada: curva de luz interna promediada.')
