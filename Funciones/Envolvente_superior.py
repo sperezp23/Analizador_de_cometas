@@ -1,6 +1,7 @@
 # Funciones  
 from Funciones.Verificar_conexion import verificar_conexion
 from Funciones.Verificar_cometa import verificar_cometa
+from Funciones.Verificar_fecha import verificar_fecha
 from Funciones.Conectar_con_API_de_COBS_Observaciones import conectar_con_API_de_COBS_Observaciones
 from Funciones.Tratamiento_de_datos_cometa import tratamiento_de_datos_cometa
 from Funciones.Descargar_efemerides import descargar_efemerides
@@ -24,7 +25,7 @@ def envolvente_superior(nombre_cometa: str, fecha_inicial: str, conectado_a_inte
     '''
 
     # Verificar cometa en la base de datos y conexión a internet
-    if verificar_conexion() and verificar_cometa(nombre_cometa, conectado_a_internet):
+    if verificar_conexion() and verificar_cometa(nombre_cometa, conectado_a_internet) and verificar_fecha(fecha_inicial):
 
         # Conexión con la API de COBS
         content = conectar_con_API_de_COBS_Observaciones(nombre_cometa, fecha_inicial, conectado_a_internet)
