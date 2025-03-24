@@ -1,5 +1,5 @@
 # Librerías
-import numpy as np
+from numpy import log10
 
 def tratamiento_de_datos_con_efemerides(curva_de_luz_cruda_df, efemerides_filtrada_df, perihelio):
     
@@ -11,7 +11,7 @@ def tratamiento_de_datos_con_efemerides(curva_de_luz_cruda_df, efemerides_filtra
 
     curva_de_luz_procesada_df['magnitud_reducida'] = (
         curva_de_luz_cruda_df['magnitude'] 
-        - 5 * np.log10(curva_de_luz_procesada_df['delta'] * curva_de_luz_procesada_df['r'])
+        - 5 * log10(curva_de_luz_procesada_df['delta'] * curva_de_luz_procesada_df['r'])
         - (beta * curva_de_luz_procesada_df['phase'])
         )
     
