@@ -2,8 +2,8 @@
 import pandas as pd
 
 # Funciones
-from Modulos.Verificar_conexion import verificar_conexion
-from Modulos.Conectar_con_API_de_COBS_Lista_de_Cometas import conectar_con_API_de_COBS_Lista_de_Cometas
+from Modulos.Manejo_de_errores.Verificar_conexion import verificar_conexion
+from Modulos.Coneccion_con_API.Conectar_con_API_de_COBS_Lista_de_Cometas import conectar_con_API_de_COBS_Lista_de_Cometas
 
 def buscar_cometa(cometa_buscado: str) -> None:
     '''

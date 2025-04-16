@@ -2,7 +2,7 @@
 import pandas as pd
 
 # Funciones
-from Modulos.Conectar_con_API_de_COBS_Lista_de_Cometas import conectar_con_API_de_COBS_Lista_de_Cometas
+from Modulos.Coneccion_con_API.Conectar_con_API_de_COBS_Lista_de_Cometas import conectar_con_API_de_COBS_Lista_de_Cometas
 
 def verificar_cometa(cometa_buscado, conectado_a_internet):
     content = conectar_con_API_de_COBS_Lista_de_Cometas(conectado_a_internet)

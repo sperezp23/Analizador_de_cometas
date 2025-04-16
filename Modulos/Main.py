@@ -1,9 +1,9 @@
 # %% Funciones  
-from Modulos.Verificar_conexion import verificar_conexion
-from Modulos.Buscar_cometa import buscar_cometa
-from Modulos.Envolvente_superior import envolvente_superior
-from Modulos.Envolvente_inferior import envolvente_inferior
-from Modulos.Envolvente_superior_inferior import envolvente_superior_inferior
+from Modulos.Manejo_de_errores.Verificar_conexion import verificar_conexion
+from Modulos.Manejo_de_errores.Buscar_cometa import buscar_cometa
+from Modulos.Procesamiento_de_datos.Envolvente_superior import envolvente_superior
+from Modulos.Procesamiento_de_datos.Envolvente_inferior import envolvente_inferior
+from Modulos.Procesamiento_de_datos.Envolvente_superior_inferior import envolvente_superior_inferior
 
 # %% Main
 def main() -> None:

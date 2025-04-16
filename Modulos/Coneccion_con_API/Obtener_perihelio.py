@@ -1,6 +1,6 @@
 # Librerías
 import requests
-import pandas as pd
+from pandas import to_datetime
 
 # Conexión con la API de COBS para obtener el perihelio
 def obtener_perihelio(nombre_cometa, conectado_a_internet):
@@ -13,7 +13,7 @@ def obtener_perihelio(nombre_cometa, conectado_a_internet):
             response = requests.get(Link_cops_API)
 
             if response.status_code == 200:
-                perihelio = pd.to_datetime(response.json()['object']['perihelion_date'])
+                perihelio = to_datetime(response.json()['object']['perihelion_date'])
                 print('✅ Perihelio del cometa obtenido.')
                 return perihelio
         
