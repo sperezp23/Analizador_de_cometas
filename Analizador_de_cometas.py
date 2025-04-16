@@ -1,5 +1,5 @@
 # %% Librerías
-from Funciones import main
+from Modulos import main
 
 # %% Programa principal
 main()

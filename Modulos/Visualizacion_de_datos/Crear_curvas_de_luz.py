@@ -1,7 +1,7 @@
 # Librerías
 import plotly.express as px
 
-from Funciones.Crear_carpetas import crear_carpetas
+from Modulos.Visualizacion_de_datos.Crear_carpetas import crear_carpetas
 
 def crear_curvas_de_luz(nombre_cometa, variable_x, variable_y, data_frame, titulo, promediada = False, color = 'obs_method_key'):
 

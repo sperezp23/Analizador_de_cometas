@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "Coneccion",
         "conexion",
         "dias",
         "efemerides",
@@ -9,9 +10,12 @@
         "lightcurve",
         "Lightcurve",
         "maximo",
+        "Modulos",
         "movil",
         "opcion",
         "plotly",
+        "subcarpeta",
+        "Visualizacion",
         "yaxes"
     ]
 }

@@ -2,7 +2,7 @@
 import plotly.graph_objects as go
 
 # Funciones
-from Funciones.Crear_carpetas import crear_carpetas
+from Modulos.Visualizacion_de_datos.Crear_carpetas import crear_carpetas
 
 def curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_de_luz_interna_df):
     titulo = f'Max/Min Averaged Lightcurve of comet {nombre_cometa}'

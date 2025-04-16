@@ -1,0 +1,127 @@
+
+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|
+
+============================================
+||INTRUCCIONES PARA EL MANEJO DEL PROGRAMA||
+============================================
+
+
+Programa para la obtencion y analisis de curvas de luz de cometas
+=================================================================
+
+Este programa permite conectar con las bases de datos de las paginas:
+- https://www.cobs.si (COBS: Comet Observations Database)
+- https://www.minorplanetcenter.net/iau/mpc.html (MPC: Minor Planet Center)
+
+Su objetivo principal es descargar, limpiar y procesar los datos fotometricos correspondientes a un cometa especifico, siempre que se encuentre registrado en ambas bases de datos.
+A partir de estos datos, el programa genera las curvas de luz internas (provenientes de COBS) y externas (provenientes del MPC).
+
+
+
+Caracteristicas del programa:
+=============================
+
+1. Conexion automatizada con las bases de datos de COBS y MPC.
+2. Descarga de los datos asociados al cometa solicitado por el usuario.
+3. Limpieza y estructuracion de los datos para facilitar su análisis.
+4. Procesamiento y visualizacion de las curvas de luz internas y externas del cometa.
+5. Interfaz de usuario basada en consola, con menu interactivo.
+
+
+
+Como intereactuar con el programa:
+=================================
+
+Al ejecutar el programa, se despliega una ventana en modo consola que presenta al usuario un menu con cinco opciones numeradas del 1 al 5. 
+Cada opcion incluye una breve descripcion de la accion que realizara el programa. El usuario puede seleccionar la opcion deseada ingresando el numero correspondiente.
+
+Menu del programa (ejemplo):
+------------------------------------------
+Elija una de las siguientes opciones:
+[i] : Instrucciones.
+[1] : Buscar el nombre de un cometa en la base de datos.
+[2] : Graficar curvas de luz externas (Envolvente superior).
+[3] : Graficar curvas de luz internas (Envolvente inferior).
+[4] : Graficar curvas de luz externa e internas (Envolvente Exterior e inferior).
+[5] : Finalizar programa.
+Ingrese aqui su eleccion:
+------------------------------------------
+
+
+
+Funcionalidades del programa:
+=============================
+
+[i] : Instrucciones.
+--------------------
+- Imprime en pantalla un texto detallado las intrucciones para el manejo del programa.
+
+
+[1] : Buscar el nombre de un cometa en la base de datos.
+--------------------------------------------------------
+- Realiza la busqueda en la base de datos Cobs del nombre del cometa ingresado o su posibles coincidencias. esta opcion permite buscar tanto por el nombre cientifico como el coloquial.
+
+[2] : Graficar curvas de luz externas (Envolvente superior).
+------------------------------------------------------------
+- Genera y guarda las curvas de luz cruda, reducida, externa y, externa promediada o tambien llamada Envolvente superior. 
+
+
+[3] : Graficar curvas de luz internas (Envolvente inferior).
+------------------------------------------------------------
+- Genera y guarda las curvas de luz cruda, reducida, interna y, interna promediada o tambien llamada Envolvente inferior.
+
+
+[4] : Graficar curvas de luz externa e internas (Envolvente Exterior e inferior).
+---------------------------------------------------------------------------------
+- Genera todas las curvas de luz mencionadas tanto en la opcion 2 como en la 3 y, de forma adicional, genera el grafico conjunto de la Envolvente inferior y exterior 
+
+
+[5] : Finalizar programa.
+-------------------------
+- Finaliza el programa. Tenga en cuenta que en caso de no hacerlo el programa permanecera abierto hasta que el usuario cierre la ventana o ingrese por consola el numero 5.
+
+
+
+Almacenamiento de resultados:
+=============================
+
+Las graficas generadas por el programa (tanto estaticas como interactivas) se guardan automaticamente en una estructura de carpetas organizada de la siguiente manera:
+
+- Al ejecutarse por primera vez, el programa verifica si existe una carpeta principal llamada `Graficas`. Si no existe, la crea automaticamente.
+- Dentro de `Graficas`, se crea una subcarpeta con el nombre del cometa procesado (por ejemplo, `67P_Churyumov-Gerasimenko`).
+- En el interior de esta subcarpeta, se crea una carpeta adicional cuyo nombre corresponde a la fecha en la que se generaron las graficas (formato: `YYYY-MM-DD`).
+- Finalmente, dentro de esta carpeta de fecha se guardan las graficas estaticas (en formato `.png`) y las graficas interactivas (en formato `.html`).
+
+Este sistema permite mantener organizadas las salidas del programa, facilitando la consulta de resultados históricos para diferentes cometas y fechas de analisis.
+
+
+
+Requisitos:
+===========
+
+- Conexion a Internet activa
+- Python 3.7 o superior
+- Bibliotecas recomendadas: requests, pandas, plotly (Para información más detallada referirse al archivo requirements.txt).
+
+
+
+Nota:
+=====
+
+Este programa asume que el cometa ingresado por el usuario esta registrado en ambas bases de datos. 
+En caso contrario, se mostrará un mensaje de error adecuado.
+
+
+
+Informacion del desarrollador:
+==============================
+
+Desarrollado por: Santiago Perez Puerta para el grupo de investigacion RAC.
+Fecha de la ultima actualizacion: 16/04/2025
+
+
+=========================================================================== 
+||INTRUCCIONES PARA EL MANEJO DEL PROGRAMA GENERADAS ARRIBA DE ESTE TEXTO||  
+===========================================================================
+
+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|+|
