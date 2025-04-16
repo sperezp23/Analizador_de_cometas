@@ -61,6 +61,7 @@ Funcionalidades del programa:
 --------------------------------------------------------
 - Realiza la busqueda en la base de datos Cobs del nombre del cometa ingresado o su posibles coincidencias. esta opcion permite buscar tanto por el nombre cientifico como el coloquial.
 
+
 [2] : Graficar curvas de luz externas (Envolvente superior).
 ------------------------------------------------------------
 - Genera y guarda las curvas de luz cruda, reducida, externa y, externa promediada o tambien llamada Envolvente superior. 
