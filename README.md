@@ -15,7 +15,6 @@ Este proyecto, mediante peticiones realizadas a la API de COPS y herramientas de
 
 
 Programa para la obtencion y analisis de curvas de luz de cometas
-=================================================================
 
 Este programa permite conectar con las bases de datos de las paginas:
 - https://www.cobs.si (COBS: Comet Observations Database)
@@ -46,12 +45,19 @@ Cada opcion incluye una breve descripcion de la accion que realizara el programa
 Menu del programa (ejemplo):
 ------------------------------------------
 Elija una de las siguientes opciones:
+
 [i] : Instrucciones.
+
 [1] : Buscar el nombre de un cometa en la base de datos.
+
 [2] : Graficar curvas de luz externas (Envolvente superior).
+
 [3] : Graficar curvas de luz internas (Envolvente inferior).
+
 [4] : Graficar curvas de luz externa e internas (Envolvente Exterior e inferior).
+
 [5] : Finalizar programa.
+
 Ingrese aqui su eleccion:
 ------------------------------------------
 
@@ -68,6 +74,7 @@ Funcionalidades del programa:
 [1] : Buscar el nombre de un cometa en la base de datos.
 --------------------------------------------------------
 - Realiza la busqueda en la base de datos Cobs del nombre del cometa ingresado o su posibles coincidencias. esta opcion permite buscar tanto por el nombre cientifico como el coloquial.
+
 
 [2] : Graficar curvas de luz externas (Envolvente superior).
 ------------------------------------------------------------
