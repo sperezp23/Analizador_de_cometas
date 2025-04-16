@@ -1,14 +1,14 @@
 # Funciones  
-from Funciones.Verificar_conexion import verificar_conexion
-from Funciones.Verificar_cometa import verificar_cometa
-from Funciones.Verificar_fecha import verificar_fecha
-from Funciones.Conectar_con_API_de_COBS_Observaciones import conectar_con_API_de_COBS_Observaciones
-from Funciones.Tratamiento_de_datos_cometa import tratamiento_de_datos_cometa
-from Funciones.Descargar_efemerides import descargar_efemerides
-from Funciones.Obtener_perihelio import obtener_perihelio
-from Funciones.Tratamiento_de_datos_con_efemerides import tratamiento_de_datos_con_efemerides
-from Funciones.Promedio_movil_maximo import promedio_movil_maximo
-from Funciones.Crear_curvas_de_luz import crear_curvas_de_luz
+from Modulos.Verificar_conexion import verificar_conexion
+from Modulos.Verificar_cometa import verificar_cometa
+from Modulos.Verificar_fecha import verificar_fecha
+from Modulos.Conectar_con_API_de_COBS_Observaciones import conectar_con_API_de_COBS_Observaciones
+from Modulos.Tratamiento_de_datos_cometa import tratamiento_de_datos_cometa
+from Modulos.Descargar_efemerides import descargar_efemerides
+from Modulos.Obtener_perihelio import obtener_perihelio
+from Modulos.Tratamiento_de_datos_con_efemerides import tratamiento_de_datos_con_efemerides
+from Modulos.Promedio_movil_maximo import promedio_movil_maximo
+from Modulos.Crear_curvas_de_luz import crear_curvas_de_luz
 
 def envolvente_superior(nombre_cometa: str, fecha_inicial: str, conectado_a_internet: bool) -> None:
     '''
