@@ -50,32 +50,32 @@ def envolvente_superior_inferior(nombre_cometa: str, fecha_inicial: str)-> tuple
         # Curva de luz cruda
         variable_a_graficar  = {'magnitude': 'Crude magnitude'}
         titulo = f'Crude lightcurve of {nombre_cometa}'
-        crear_curvas_de_luz(nombre_cometa, variable_a_graficar , curva_de_luz_cruda_df, titulo)
+        crear_curvas_de_luz(nombre_cometa, 'obs_date', variable_a_graficar , curva_de_luz_cruda_df, titulo)
 
         # Curva de luz reducida
         variable_a_graficar  = {'magnitud_reducida' :'Reduced magnitude'}
         titulo = f'Reduced lightcurve of {nombre_cometa}'
-        crear_curvas_de_luz(nombre_cometa, variable_a_graficar , curva_de_luz_procesada_df, titulo)
+        crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_procesada_df, titulo)
 
         # Curva de luz externa
         variable_a_graficar  = {'magnitud_reducida':'Maximized reduced magnitude'}
         titulo = f'Maximized external lightcurve of {nombre_cometa}'
-        crear_curvas_de_luz(nombre_cometa, variable_a_graficar , curva_de_luz_externa_df, titulo)
+        crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_externa_df, titulo)
 
         # Envolvente superior
         variable_a_graficar = {'promedio_movil':'Averaged reduced magnitude'}
         titulo = f'Averaged external lightcurve of {nombre_cometa}'
-        crear_curvas_de_luz(nombre_cometa, variable_a_graficar , curva_de_luz_externa_df, titulo, promediada = True, color = 'yellow')
+        crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_externa_df, titulo, promediada = True, color = 'yellow')
 
         # Curva de luz interna
         variable_a_graficar  = {'magnitud_reducida':'Minimized reduced magnitude'}
         titulo = f'Minimized external lightcurve of {nombre_cometa}'
-        crear_curvas_de_luz(nombre_cometa, variable_a_graficar , curva_de_luz_interna_df, titulo)
+        crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_interna_df, titulo)
 
         # Envolvente inferior
         variable_a_graficar = {'promedio_movil':'Averaged reduced magnitude'}
         titulo = f'Averaged internal lightcurve of {nombre_cometa}'
-        crear_curvas_de_luz(nombre_cometa, variable_a_graficar , curva_de_luz_interna_df, titulo, promediada = True, color = 'red')
+        crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_interna_df, titulo, promediada = True, color = 'red')
 
         # # Generar Curva de luz interna y externa 
         curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_de_luz_interna_df)
