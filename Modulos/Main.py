@@ -46,54 +46,54 @@ Ingrese aquí su elección: '''
 
         # Buscar cometa
         if opcion_elegida == '1':
-            nombre_cometa = input('\nIngrese el nombre del cometa que desea buscar o, "volver_menu" para regresar: ')
+            nombre_cometa = input('\nIngrese el nombre del cometa que desea buscar o, "menu" para regresar al inicio: ')
 
-            if nombre_cometa != 'volver_menu':
+            if nombre_cometa != 'menu':
                 buscar_cometa(nombre_cometa)
         
         # Graficar curvas de luz externa 
         elif opcion_elegida == '2':
-            nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
+            nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "menu" para regresar al inicio: ') #'C/2023 A3'
 
-            if nombre_cometa != 'volver_menu':
-                fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
+            if nombre_cometa != 'menu':
+                fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "menu" para regresar al inicio: ')
 
-                if fecha_inicial != 'volver_menu':
+                if fecha_inicial != 'menu':
                     envolvente_superior(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Graficar curvas de luz interna
         elif opcion_elegida == '3':
-            nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
+            nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "menu" para regresar al inicio: ') #'C/2023 A3'
 
-            if nombre_cometa != 'volver_menu':
+            if nombre_cometa != 'menu':
 
-                fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
+                fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "menu" para regresar al inicio: ')
 
-                if fecha_inicial != 'volver_menu':
+                if fecha_inicial != 'menu':
                     envolvente_inferior(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Graficar ambas curvas de luz interna y externa
         elif opcion_elegida == '4':
-            nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
+            nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "menu" para regresar al inicio: ') #'C/2023 A3'
         
-            if nombre_cometa != 'volver_menu':
-                fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
+            if nombre_cometa != 'menu':
+                fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "menu" para regresar al inicio: ')
 
-                if fecha_inicial != 'volver_menu':
+                if fecha_inicial != 'menu':
                     envolvente_superior_inferior(nombre_cometa, fecha_inicial)
 
         # Generar archivo
         elif opcion_elegida == '5':
-            nombre_cometa = input('Ingrese el nombre del cometa que desea buscar o, "volver_menu" para regresar: ') #'C/2023 A3'
+            nombre_cometa = input('Ingrese el nombre del cometa que desea buscar o, "menu" para regresar al inicio: ') #'C/2023 A3'
 
-            if nombre_cometa != 'volver_menu':
-                fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
+            if nombre_cometa != 'menu':
+                fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "menu" para regresar al inicio: ')
 
-                if fecha_inicial != 'volver_menu':
+                if fecha_inicial != 'menu':
                     generar_archivos(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Finalizar programa
-        elif opcion_elegida == '6':
+        elif opcion_elegida == opciones[-1]:
             print('\nPrograma finalizado por el usuario.')
             break
         
