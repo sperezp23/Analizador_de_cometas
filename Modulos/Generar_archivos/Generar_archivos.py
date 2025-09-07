@@ -37,20 +37,25 @@ def generar_archivos(nombre_cometa: str, fecha_inicial: str, conectado_a_interne
         curva_de_luz_procesada_df = tratamiento_de_datos_con_efemerides(curva_de_luz_cruda_df, efemerides_df, perihelio)
 
         # Generar archivos txt
+        
+        print('⏳ Generando archivo de datos procesados.')
+
         archivo_curva_de_luz_procesada_df = DataFrame()
         archivo_curva_de_luz_procesada_df['Year'] = curva_de_luz_procesada_df.obs_date.dt.year
         archivo_curva_de_luz_procesada_df['Month'] = curva_de_luz_procesada_df.obs_date.dt.month
         archivo_curva_de_luz_procesada_df['Day'] = curva_de_luz_procesada_df.obs_date.dt.day
         archivo_curva_de_luz_procesada_df['t-Tq'] = curva_de_luz_procesada_df.delta_t
         archivo_curva_de_luz_procesada_df['delta'] = curva_de_luz_procesada_df.delta
-        archivo_curva_de_luz_procesada_df['r'] = curva_de_luz_procesada_df.r
+        archivo_curva_de_luz_procesada_df['R'] = curva_de_luz_procesada_df.r
         archivo_curva_de_luz_procesada_df['alpha'] = curva_de_luz_procesada_df.phase
-        archivo_curva_de_luz_procesada_df['magnitud_cruda'] = curva_de_luz_procesada_df.magnitude
-        archivo_curva_de_luz_procesada_df['magnitud_reducida_delta'] = curva_de_luz_procesada_df.magnitud_reducida
-        archivo_curva_de_luz_procesada_df['magnitud_reducida_alpha'] = curva_de_luz_procesada_df.magnitud_reducida
+        archivo_curva_de_luz_procesada_df['MAG'] = curva_de_luz_procesada_df.magnitude
+        archivo_curva_de_luz_procesada_df['m(1,1,0)'] = curva_de_luz_procesada_df.magnitud_reducida
+        archivo_curva_de_luz_procesada_df['m(1,1,alpha)'] = curva_de_luz_procesada_df.magnitud_reducida
 
         ruta_archivos = crear_carpetas(nombre_cometa, nombre_archivo = 'Datos_procesados_cometa_', carpeta_base='Bases_de_datos', tipo_archivo= 'txt')
         archivo_curva_de_luz_procesada_df.to_csv(ruta_archivos, index=False, sep='\t')
+
+        print(f'✅ Archivo de datos procesados creado.')
 
 if __name__ == '__main__':
     generar_archivos()
