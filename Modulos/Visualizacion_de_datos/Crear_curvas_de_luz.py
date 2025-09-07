@@ -13,7 +13,7 @@ def crear_curvas_de_luz(nombre_cometa, variable_x, variable_y, data_frame, titul
     labels = {
         'obs_date':'Observation Date',
         'delta_t':'t-Δt',
-        'obs_method_key' : 'Observation Method',
+        # 'obs_method_key' : 'Observation Method',
     }
 
     labels.update(variable_y)
@@ -21,7 +21,8 @@ def crear_curvas_de_luz(nombre_cometa, variable_x, variable_y, data_frame, titul
     if not promediada: 
 
         fig = px.scatter(data_frame, x= variable_x, y= variable_a_graficar,
-            color= color, template= 'plotly_dark', labels= labels,
+            # color= color,
+            template= 'plotly_dark', labels= labels,
             title= titulo)
 
     elif promediada: 
@@ -34,7 +35,7 @@ def crear_curvas_de_luz(nombre_cometa, variable_x, variable_y, data_frame, titul
     fig.update_yaxes(autorange="reversed")
     fig.write_image(ruta_archivos_graficas, width = 1500, height = 700)
     fig.write_html(ruta_archivos_graficas.replace('png', 'html'))
-    fig.show()
+    # fig.show()
 
     if __name__ == '__main__':
         crear_curvas_de_luz()
