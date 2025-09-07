@@ -2,6 +2,7 @@
 from Modulos.Manejo_de_errores.Verificar_conexion import verificar_conexion
 from Modulos.Lectura_de_archivos.Leer_instrucciones import leer_instrucciones
 from Modulos.Manejo_de_errores.Buscar_cometa import buscar_cometa
+from Modulos.Manejo_de_errores.Verificar_fecha import verificar_fecha
 from Modulos.Procesamiento_de_datos.Envolvente_superior import envolvente_superior
 from Modulos.Procesamiento_de_datos.Envolvente_inferior import envolvente_inferior
 from Modulos.Procesamiento_de_datos.Envolvente_superior_inferior import envolvente_superior_inferior
@@ -58,7 +59,7 @@ Ingrese aquí su elección: '''
             if nombre_cometa != 'menu':
                 fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "menu" para regresar al inicio: ')
 
-                if fecha_inicial != 'menu':
+                if fecha_inicial != 'menu' and verificar_fecha(fecha_inicial):
                     envolvente_superior(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Graficar curvas de luz interna
@@ -69,7 +70,7 @@ Ingrese aquí su elección: '''
 
                 fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "menu" para regresar al inicio: ')
 
-                if fecha_inicial != 'menu':
+                if fecha_inicial != 'menu' and verificar_fecha(fecha_inicial):
                     envolvente_inferior(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Graficar ambas curvas de luz interna y externa
@@ -79,7 +80,7 @@ Ingrese aquí su elección: '''
             if nombre_cometa != 'menu':
                 fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "menu" para regresar al inicio: ')
 
-                if fecha_inicial != 'menu':
+                if fecha_inicial != 'menu' and verificar_fecha(fecha_inicial):
                     envolvente_superior_inferior(nombre_cometa, fecha_inicial)
 
         # Generar archivo
@@ -89,7 +90,7 @@ Ingrese aquí su elección: '''
             if nombre_cometa != 'menu':
                 fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "menu" para regresar al inicio: ')
 
-                if fecha_inicial != 'menu':
+                if fecha_inicial != 'menu' and verificar_fecha(fecha_inicial):
                     generar_archivos(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Finalizar programa
