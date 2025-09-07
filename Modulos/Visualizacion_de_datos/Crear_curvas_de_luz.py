@@ -12,7 +12,7 @@ def crear_curvas_de_luz(nombre_cometa, variable_x, variable_y, data_frame, titul
 
     labels = {
         'obs_date':'Observation Date',
-        'delta_t':'t-Δt',
+        'delta_t':'t-Tq',
         # 'obs_method_key' : 'Observation Method',
     }
 

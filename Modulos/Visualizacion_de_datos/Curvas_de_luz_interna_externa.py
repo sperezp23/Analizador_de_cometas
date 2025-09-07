@@ -13,7 +13,7 @@ def curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_
     fig.add_trace(go.Scatter(x=curva_de_luz_interna_df.delta_t, y=curva_de_luz_interna_df.promedio_movil, mode='markers', name='Núcleo', marker=dict(color='red', line=dict(width=1, color='DarkSlateGrey'))))
     fig.update_layout(template='plotly_dark')
     fig.update_yaxes(autorange="reversed")
-    fig.update_layout(template='plotly_dark', xaxis_title='t-Δt', yaxis_title='Reduced Magnitude', title = titulo)
+    fig.update_layout(template='plotly_dark', xaxis_title='t-Tq', yaxis_title='Reduced Magnitude', title = titulo)
     fig.write_image(ruta_archivos_graficas, width = 1500, height = 700)
     fig.write_html(ruta_archivos_graficas.replace('png', 'html'))
     # fig.show()

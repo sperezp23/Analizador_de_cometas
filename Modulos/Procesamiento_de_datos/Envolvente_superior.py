@@ -47,17 +47,17 @@ def envolvente_superior(nombre_cometa: str, fecha_inicial: str, conectado_a_inte
         crear_curvas_de_luz(nombre_cometa, 'obs_date', variable_a_graficar , curva_de_luz_cruda_df, titulo)
 
         # Curva de luz reducida
-        variable_a_graficar  = {'magnitud_reducida' :'Reduced magnitude'}
+        variable_a_graficar  = {'magnitud_reducida' :'m(1,1,0)'}
         titulo = f'Reduced lightcurve of {nombre_cometa}'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_procesada_df, titulo)
 
         # Curva de luz externa
-        variable_a_graficar  = {'magnitud_reducida':'Maximized reduced magnitude'}
+        variable_a_graficar  = {'magnitud_reducida':'Maximized m(1,1,0)'}
         titulo = f'Maximized external lightcurve of {nombre_cometa}'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_externa_df, titulo)
 
         # Envolvente superior
-        variable_a_graficar = {'promedio_movil':'Averaged reduced magnitude'}
+        variable_a_graficar = {'promedio_movil':'Averaged m(1,1,0)'}
         titulo = f'Averaged external lightcurve of {nombre_cometa}'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_externa_df, titulo, promediada = True, color = 'yellow')
 
