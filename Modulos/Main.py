@@ -5,6 +5,7 @@ from Modulos.Manejo_de_errores.Buscar_cometa import buscar_cometa
 from Modulos.Procesamiento_de_datos.Envolvente_superior import envolvente_superior
 from Modulos.Procesamiento_de_datos.Envolvente_inferior import envolvente_inferior
 from Modulos.Procesamiento_de_datos.Envolvente_superior_inferior import envolvente_superior_inferior
+from Modulos.Generar_archivos.Generar_archivos import generar_archivos
 
 # %% Main
 def main() -> None:
@@ -14,7 +15,7 @@ def main() -> None:
 
     #  Variables
     opcion_elegida: str = '-1'
-    opciones : str = 'i12345'
+    opciones : str = 'i123456'
     mensaje_de_inicio: str = f'{'\n'*2}{'='*32}\n|| GENERADOR DE CURVAS DE LUZ ||\n{'='*32}'
     texto_opciones : str  = f'''Elija una de las siguientes opciones:\n
 [i] : Instrucciones (mostrar en pantalla las instrucciones del programa).\n
@@ -22,7 +23,8 @@ def main() -> None:
 [2] : Graficar curvas de luz externas (Envolvente superior).
 [3] : Graficar curvas de luz internas (Envolvente inferior).
 [4] : Graficar curvas de luz externa e internas (Envolvente Exterior e inferior).
-[5] : Finalizar programa.\n
+[5] : Generar archivo.
+[6] : Finalizar programa.\n
 Ingrese aquí su elección: '''
     
     # Mensaje de inicio.
@@ -52,29 +54,46 @@ Ingrese aquí su elección: '''
         # Graficar curvas de luz externa 
         elif opcion_elegida == '2':
             nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
-            fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
 
-            if nombre_cometa != 'volver_menu' and fecha_inicial != 'volver_menu':
-                envolvente_superior(nombre_cometa, fecha_inicial, conectado_a_internet)
+            if nombre_cometa != 'volver_menu':
+                fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
+
+                if fecha_inicial != 'volver_menu':
+                    envolvente_superior(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Graficar curvas de luz interna
         elif opcion_elegida == '3':
             nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
-            fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
 
-            if nombre_cometa != 'volver_menu' and fecha_inicial != 'volver_menu':
-                envolvente_inferior(nombre_cometa, fecha_inicial, conectado_a_internet)
+            if nombre_cometa != 'volver_menu':
+
+                fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
+
+                if fecha_inicial != 'volver_menu':
+                    envolvente_inferior(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Graficar ambas curvas de luz interna y externa
         elif opcion_elegida == '4':
             nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
-            fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
+        
+            if nombre_cometa != 'volver_menu':
+                fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
 
-            if nombre_cometa != 'volver_menu' and fecha_inicial != 'volver_menu':
-                envolvente_superior_inferior(nombre_cometa, fecha_inicial)
+                if fecha_inicial != 'volver_menu':
+                    envolvente_superior_inferior(nombre_cometa, fecha_inicial)
+
+        # Generar archivo
+        elif opcion_elegida == '5':
+            nombre_cometa = input('Ingrese el nombre del cometa que desea buscar o, "volver_menu" para regresar: ') #'C/2023 A3'
+
+            if nombre_cometa != 'volver_menu':
+                fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
+
+                if fecha_inicial != 'volver_menu':
+                    generar_archivos(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Finalizar programa
-        elif opcion_elegida == '5':
+        elif opcion_elegida == '6':
             print('\nPrograma finalizado por el usuario.')
             break
         

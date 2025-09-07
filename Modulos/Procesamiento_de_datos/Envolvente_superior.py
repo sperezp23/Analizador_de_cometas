@@ -30,13 +30,13 @@ def envolvente_superior(nombre_cometa: str, fecha_inicial: str, conectado_a_inte
         curva_de_luz_cruda_df = tratamiento_de_datos_cometa(content)
 
         # Descargar efemérides
-        efemerides = descargar_efemerides(nombre_cometa, curva_de_luz_cruda_df)
+        efemerides_df = descargar_efemerides(nombre_cometa, curva_de_luz_cruda_df)
 
         # Obtener perihelio de la API de COBS
         perihelio = obtener_perihelio(nombre_cometa, conectado_a_internet)
 
         # Tratamiento de datos con efemerides
-        curva_de_luz_procesada_df = tratamiento_de_datos_con_efemerides(curva_de_luz_cruda_df, efemerides, perihelio)
+        curva_de_luz_procesada_df = tratamiento_de_datos_con_efemerides(curva_de_luz_cruda_df, efemerides_df, perihelio)
 
         # Promedio movil
         curva_de_luz_externa_df = promedio_movil_maximo(curva_de_luz_procesada_df)

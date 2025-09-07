@@ -36,11 +36,7 @@ def descargar_efemerides(nombre_cometa, curva_de_luz_cruda_df, numero_de_dias= 4
         print('⌛ Conectando con la base de datos [MPC efemerides].')
         
         data_element = soup.find('pre')
-        successful_download = True
-
-    else:
-        print('The ephemeris form submission was not successful')        
-
+        successful_download = True       
         
     if successful_download:
         data_text = data_element.text.splitlines() # type: ignore
@@ -60,9 +56,9 @@ def descargar_efemerides(nombre_cometa, curva_de_luz_cruda_df, numero_de_dias= 4
                 efemerides.append(['-'.join([year, month, day]), float(delta), float(r), float(phase)]) # type: ignore
                 
         print('✅ Base de datos actualizada [MPC efemerides].')
-        efemerides_filtrada_df = pd.DataFrame(efemerides[1::], columns= efemerides[0]) # type: ignore
-        efemerides_filtrada_df['obs_date'] = pd.to_datetime(efemerides_filtrada_df.obs_date)
-        return efemerides_filtrada_df
+        efemerides_df = pd.DataFrame(efemerides[1::], columns= efemerides[0]) # type: ignore
+        efemerides_df['obs_date'] = pd.to_datetime(efemerides_df.obs_date)
+        return efemerides_df
     
 if __name__ == '__main__':
     descargar_efemerides()
