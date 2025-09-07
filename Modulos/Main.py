@@ -52,25 +52,25 @@ Ingrese aquí su elección: '''
         # Graficar curvas de luz externa 
         elif opcion_elegida == '2':
             nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
-            fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD: ')
+            fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
 
-            if nombre_cometa != 'volver_menu':
+            if nombre_cometa != 'volver_menu' and fecha_inicial != 'volver_menu':
                 envolvente_superior(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Graficar curvas de luz interna
         elif opcion_elegida == '3':
             nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
-            fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD: ')
+            fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
 
-            if nombre_cometa != 'volver_menu':
+            if nombre_cometa != 'volver_menu' and fecha_inicial != 'volver_menu':
                 envolvente_inferior(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Graficar ambas curvas de luz interna y externa
         elif opcion_elegida == '4':
             nombre_cometa = input('Ingrese el nombre del cometa que desea graficar o, "volver_menu" para regresar: ') #'C/2023 A3'
-            fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD: ')
+            fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "volver_menu" para regresar: ')
 
-            if nombre_cometa != 'volver_menu':
+            if nombre_cometa != 'volver_menu' and fecha_inicial != 'volver_menu':
                 envolvente_superior_inferior(nombre_cometa, fecha_inicial)
 
         # Finalizar programa
