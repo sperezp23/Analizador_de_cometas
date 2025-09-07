@@ -33,7 +33,8 @@ def crear_curvas_de_luz(nombre_cometa, variable_x, variable_y, data_frame, titul
         fig.update_traces(marker=dict(color= color, size=6, line=dict(width=1, color='DarkSlateGrey')))
 
     fig.update_yaxes(autorange="reversed")
-    fig.write_image(ruta_archivos_graficas, width = 1500, height = 700)
+
+    # fig.write_image(ruta_archivos_graficas, width = 1500, height = 700)
     fig.write_html(ruta_archivos_graficas.replace('png', 'html'))
     # fig.show()
 
