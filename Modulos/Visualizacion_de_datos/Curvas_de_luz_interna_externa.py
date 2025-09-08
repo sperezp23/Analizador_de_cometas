@@ -13,8 +13,8 @@ def curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_
 
     _, ax = plt.subplots()
 
-    sns.scatterplot(data=curva_de_luz_externa_df, x='delta_t', y='promedio_movil', ax=ax,  color="#FFF200", edgecolor="#000000",  label='Envolvente', linewidth=0.5, s=15)
-    sns.scatterplot(data=curva_de_luz_interna_df, x='delta_t', y='promedio_movil', ax=ax, color='red', edgecolor="#AF0000", label='Nucleo', linewidth=0.5, s=15)
+    sns.scatterplot(data=curva_de_luz_externa_df, x='delta_t', y='promedio_movil', ax=ax,  color="#FFF200", edgecolor="#000000",  label='Envolvente', linewidth=0.5, s=17)
+    sns.scatterplot(data=curva_de_luz_interna_df, x='delta_t', y='promedio_movil', ax=ax, color='red', edgecolor="#AF0000", label='Nucleo', linewidth=0.5, s=17)
     
     ax.invert_yaxis()   
     ax.set_title(titulo)
@@ -23,12 +23,11 @@ def curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_
     ax.legend()
     ax.grid(True)
 
+    # Guardar la imagen
+    plt.savefig(ruta_archivos_graficas.replace('html', 'png'), dpi=300)
 
     # Mostrar el gráfico
     plt.show()
-
-    # Guardar la imagen
-    plt.savefig(ruta_archivos_graficas.replace('html', 'png'), dpi=300)
 
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=curva_de_luz_externa_df.delta_t, y=curva_de_luz_externa_df.promedio_movil, mode='markers', name='Envolvente', marker=dict(color='yellow', line=dict(width=1, color='DarkSlateGrey'))))

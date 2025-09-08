@@ -46,9 +46,11 @@ def crear_curvas_de_luz(nombre_cometa, variable_x, variable_y, data_frame, titul
     fig.update_yaxes(autorange="reversed")
 
     plt.savefig(ruta_archivos_graficas.replace('html', 'png'), dpi=300)
+    print(f'✅ Grafica estática: {titulo} creada.')
     plt.show()
 
     fig.write_html(ruta_archivos_graficas.replace('png', 'html'))
+    print(f'✅ Grafica interactiva: {titulo} creada.')
 
     if __name__ == '__main__':
         crear_curvas_de_luz()
