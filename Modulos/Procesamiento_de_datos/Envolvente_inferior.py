@@ -42,7 +42,7 @@ def envolvente_inferior(nombre_cometa: str, fecha_inicial: str, conectado_a_inte
         curva_de_luz_interna_df = promedio_movil_minimo(curva_de_luz_procesada_df)
 
         # Curva de luz cruda
-        variable_a_graficar  = {'magnitude': 'Crude magnitude'}
+        variable_a_graficar  = {'magnitude': r'$m(\Delta, R, \alpha)$'}
         titulo = f'Crude lightcurve of {nombre_cometa}'
         crear_curvas_de_luz(nombre_cometa, 'obs_date', variable_a_graficar , curva_de_luz_cruda_df, titulo)
 

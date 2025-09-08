@@ -3,6 +3,7 @@
         "Coneccion",
         "conexion",
         "dias",
+        "edgecolor",
         "efemerides",
         "grafica",
         "graficas",
@@ -12,10 +13,13 @@
         "maximo",
         "Modulos",
         "movil",
+        "Nucleo",
         "opcion",
         "plotly",
+        "scatterplot",
         "subcarpeta",
         "Visualizacion",
+        "xlabel",
         "yaxes"
     ]
 }

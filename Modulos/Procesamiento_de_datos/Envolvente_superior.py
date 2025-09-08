@@ -42,7 +42,7 @@ def envolvente_superior(nombre_cometa: str, fecha_inicial: str, conectado_a_inte
         curva_de_luz_externa_df = promedio_movil_maximo(curva_de_luz_procesada_df)
 
         # Curva de luz cruda
-        variable_a_graficar  = {'magnitude': 'Crude magnitude'}
+        variable_a_graficar  = {'magnitude': r'$m(\Delta, R, \alpha)$'}
         titulo = f'Crude lightcurve of {nombre_cometa}'
         crear_curvas_de_luz(nombre_cometa, 'obs_date', variable_a_graficar , curva_de_luz_cruda_df, titulo)
 
@@ -59,7 +59,7 @@ def envolvente_superior(nombre_cometa: str, fecha_inicial: str, conectado_a_inte
         # Envolvente superior
         variable_a_graficar = {'promedio_movil':'Averaged m(1,1,0)'}
         titulo = f'Averaged external lightcurve of {nombre_cometa}'
-        crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_externa_df, titulo, promediada = True, color = 'yellow')
+        crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_externa_df, titulo, promediada= True, color= "#FFEE00")
 
 if __name__ == '__main__':
     envolvente_superior()
