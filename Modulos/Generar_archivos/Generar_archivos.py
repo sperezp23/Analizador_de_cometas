@@ -52,7 +52,9 @@ def generar_archivos(nombre_cometa: str, fecha_inicial: str, conectado_a_interne
         archivo_curva_de_luz_procesada_df['m(1,1,0)'] = curva_de_luz_procesada_df.magnitud_reducida.round(2)
         archivo_curva_de_luz_procesada_df['m(1,1,alpha)'] = curva_de_luz_procesada_df.magnitud_reducida.round(2)
 
-        ruta_archivos = crear_carpetas(nombre_cometa, nombre_archivo = 'Datos_procesados_cometa_', carpeta_base='Bases_de_datos', tipo_archivo= 'txt')
+        nombre_archivo = f'Datos_procesados_cometa_{nombre_cometa}_COBS'
+
+        ruta_archivos = crear_carpetas(nombre_cometa, nombre_archivo = nombre_archivo, carpeta_base='Bases_de_datos', tipo_archivo= 'txt')
         archivo_curva_de_luz_procesada_df.to_csv(ruta_archivos, index=False, sep='\t')
 
         print(f'✅ Archivo de datos procesados creado.')

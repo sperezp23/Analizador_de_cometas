@@ -44,32 +44,32 @@ def envolvente_superior_inferior(nombre_cometa: str, fecha_inicial: str)-> None:
 
         # Curva de luz cruda
         variable_a_graficar  = {'magnitude': r'$m(\Delta, R, \alpha)$'}
-        titulo = f'Crude lightcurve of {nombre_cometa} data from COBS'
+        titulo = f'Crude lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'obs_date', variable_a_graficar , curva_de_luz_cruda_df, titulo)
 
         # Curva de luz reducida
         variable_a_graficar  = {'magnitud_reducida' :'m(1,1,0)'}
-        titulo = f'Reduced lightcurve of {nombre_cometa} data from COBS'
+        titulo = f'Reduced lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_procesada_df, titulo)
 
         # Curva de luz externa
         variable_a_graficar  = {'magnitud_reducida':'Maximized m(1,1,0)'}
-        titulo = f'Maximized external lightcurve of {nombre_cometa} data from COBS'
+        titulo = f'Maximized external lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_externa_df, titulo)
 
         # Envolvente superior
         variable_a_graficar = {'promedio_movil':'Averaged m(1,1,0)'}
-        titulo = f'Averaged external lightcurve of {nombre_cometa} data from COBS'
+        titulo = f'Averaged external lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_externa_df, titulo, promediada = True, color= '#FFEE00')
 
         # Curva de luz interna
         variable_a_graficar  = {'magnitud_reducida':'Minimized m(1,1,0)'}
-        titulo = f'Minimized internal lightcurve of {nombre_cometa} data from COBS'
+        titulo = f'Minimized internal lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_interna_df, titulo)
 
         # Envolvente inferior
         variable_a_graficar = {'promedio_movil':'Averaged m(1,1,0)'}
-        titulo = f'Averaged internal lightcurve of {nombre_cometa} data from COBS'
+        titulo = f'Averaged internal lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_interna_df, titulo, promediada = True, color= 'red')
 
         # Generar Curva de luz interna y externa 
