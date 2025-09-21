@@ -20,7 +20,7 @@ def main() -> None:
     mensaje_de_inicio: str = f'{'\n'*2}{'='*32}\n|| GENERADOR DE CURVAS DE LUZ ||\n{'='*32}'
     texto_opciones : str  = f'''Elija una de las siguientes opciones:\n
 [i] : Instrucciones (mostrar en pantalla las instrucciones del programa).\n
-[1] : Buscar el nombre de un cometa en la base de datos.
+[1] : Buscar el nombre de un cometa en la base de datos COBS.
 [2] : Graficar curvas de luz externas (Envolvente superior).
 [3] : Graficar curvas de luz internas (Envolvente inferior).
 [4] : Graficar curvas de luz externa e internas (Envolvente Exterior e inferior).

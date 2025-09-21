@@ -45,7 +45,7 @@ def envolvente_superior_inferior(nombre_cometa: str, fecha_inicial: str)-> None:
         # Curva de luz cruda
         variable_a_graficar  = {'magnitude': r'$m(\Delta, R, \alpha)$'}
         titulo = f'Crude lightcurve of {nombre_cometa} - data from COBS'
-        crear_curvas_de_luz(nombre_cometa, 'obs_date', variable_a_graficar , curva_de_luz_cruda_df, titulo)
+        crear_curvas_de_luz(nombre_cometa, 'obs_date', variable_a_graficar , curva_de_luz_cruda_df, titulo, titulo_eje_x = 'Observation Date')
 
         # Curva de luz reducida
         variable_a_graficar  = {'magnitud_reducida' :'m(1,1,0)'}
@@ -72,8 +72,13 @@ def envolvente_superior_inferior(nombre_cometa: str, fecha_inicial: str)-> None:
         titulo = f'Averaged internal lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_interna_df, titulo, promediada = True, color= 'red')
 
-        # Generar Curva de luz interna y externa 
-        curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_de_luz_interna_df)
+        # Generar Curva de luz interna y externa
+        titulo = f'Max/Min Averaged Lightcurve of comet {nombre_cometa} data from COBS'
+        curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_de_luz_interna_df, titulo=titulo)
+
+        # Generar Curva de luz interna y externa sobrepuesta con la curva de luz procesada
+        titulo = f'Max/Min/Reduced Lightcurve of comet {nombre_cometa} data from COBS'
+        curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_de_luz_interna_df, curva_de_luz_procesada_df, titulo=titulo, sobrepuestas=True)
 
 if __name__ == '__main__':
     envolvente_superior_inferior()

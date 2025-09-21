@@ -6,7 +6,7 @@ import plotly.express as px
 # Funciones
 from Modulos.Crear_carpetas.Crear_carpetas import crear_carpetas
 
-def crear_curvas_de_luz(nombre_cometa, variable_x, variable_y, data_frame, titulo, promediada = False, color = None):
+def crear_curvas_de_luz(nombre_cometa, variable_x, variable_y, data_frame, titulo, promediada = False, color = None, titulo_eje_x = 't-Tq [days]'):
 
     # Crear carpetas
     ruta_archivos_graficas = crear_carpetas(nombre_cometa, titulo)
@@ -22,7 +22,7 @@ def crear_curvas_de_luz(nombre_cometa, variable_x, variable_y, data_frame, titul
 
     plt.gca().invert_yaxis()  # Invertir el eje y
     plt.title(titulo)
-    plt.xlabel('t-Tq [days]')
+    plt.xlabel(titulo_eje_x)
     plt.ylabel(list(variable_y.values())[0])
     plt.grid(True)
 

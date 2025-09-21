@@ -44,7 +44,7 @@ def envolvente_superior(nombre_cometa: str, fecha_inicial: str, conectado_a_inte
         # Curva de luz cruda
         variable_a_graficar  = {'magnitude': r'$m(\Delta, R, \alpha)$'}
         titulo = f'Crude lightcurve of {nombre_cometa} - data from COBS'
-        crear_curvas_de_luz(nombre_cometa, 'obs_date', variable_a_graficar , curva_de_luz_cruda_df, titulo)
+        crear_curvas_de_luz(nombre_cometa, 'obs_date', variable_a_graficar , curva_de_luz_cruda_df, titulo, titulo_eje_x = 'Observation Date')
 
         # Curva de luz reducida
         variable_a_graficar  = {'magnitud_reducida' :'m(1,1,0)'}
