@@ -18,6 +18,7 @@ def tratamiento_de_datos_con_efemerides(curva_de_luz_cruda_df, efemerides_df, pe
     # Calculo del Delta t
     curva_de_luz_procesada_df['delta_t'] = (curva_de_luz_procesada_df.obs_date - perihelio) # type: ignore
     curva_de_luz_procesada_df['delta_t'] = curva_de_luz_procesada_df.delta_t.dt.days
+    
     return curva_de_luz_procesada_df
 
 if __name__ == '__main__':

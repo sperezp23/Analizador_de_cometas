@@ -80,5 +80,9 @@ def envolvente_superior_inferior(nombre_cometa: str, fecha_inicial: str)-> None:
         titulo = f'Max/Min/Reduced Lightcurve of comet {nombre_cometa} data from COBS'
         curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_de_luz_interna_df, curva_de_luz_procesada_df, titulo=titulo, sobrepuestas=True)
 
+        # Numero de registros obtenidos
+        filas, __ = curva_de_luz_cruda_df.shape
+        print(f'{'-'*40 + '\n'*2}📊 Se descargó con éxito un total de {filas} observaciones de la base de datos COBS referentes al cometa: {nombre_cometa}.')
+
 if __name__ == '__main__':
     envolvente_superior_inferior()

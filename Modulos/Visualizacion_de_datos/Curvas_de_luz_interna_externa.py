@@ -38,6 +38,7 @@ def curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_
 
     # Guardar la imagen
     plt.savefig(ruta_archivos_graficas.replace('html', 'png'), dpi=300)
+    print(f'✅ Grafica estática: {titulo} creada.')
 
     # Mostrar el gráfico
     plt.show()
@@ -46,8 +47,7 @@ def curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_
     fig.update_layout(template='plotly_dark', xaxis_title='t-Tq', yaxis_title='Average m(1,1,0)', title = titulo)
     
     fig.write_html(ruta_archivos_graficas)
-
-    print('✅ Creada: curva de luz Interna-Externa.')
+    print(f'✅ Grafica interactiva: {titulo} creada.')
 
 if __name__ == '__main__':
     curvas_de_luz_interna_externa()
