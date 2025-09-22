@@ -43,7 +43,7 @@ Ingrese aquí su elección: '''
 
         # Instrucciones
         if opcion_elegida == 'i':
-            leer_instrucciones(r'Instrucciones\Instrucciones.txt')
+            leer_instrucciones(r'Modulos\Instrucciones.txt')
 
         # Buscar cometa
         if opcion_elegida == '1':
