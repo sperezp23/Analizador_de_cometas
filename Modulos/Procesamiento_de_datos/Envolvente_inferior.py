@@ -61,5 +61,9 @@ def envolvente_inferior(nombre_cometa: str, fecha_inicial: str, conectado_a_inte
         titulo = f'Averaged internal lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_interna_df, titulo, promediada = True, color = 'red')
 
+        # Numero de registros obtenidos
+        filas, __ = curva_de_luz_cruda_df.shape
+        print(f'{'-'*40 + '\n'*2}📊 Se descargó con éxito un total de {filas} observaciones de la base de datos COBS referentes al cometa: {nombre_cometa}.')
+
 if __name__ == '__main__':
     envolvente_inferior()
