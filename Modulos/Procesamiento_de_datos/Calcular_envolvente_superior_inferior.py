@@ -10,6 +10,7 @@ from Modulos.Procesamiento_de_datos.Procesar_datos_con_efemerides import procesa
 from Modulos.Procesamiento_de_datos.Calcular_promedio_movil_maximo import calcular_promedio_movil_maximo
 from Modulos.Procesamiento_de_datos.Calcular_promedio_movil_minimo import calcular_promedio_movil_minimo
 from Modulos.Visualizacion_de_datos.Crear_curvas_de_luz import crear_curvas_de_luz
+from Modulos.Visualizacion_de_datos.Crear_curvas_de_fase import crear_curva_de_fase
 from Modulos.Visualizacion_de_datos.Generar_curvas_de_luz_interna_externa import generar_curvas_de_luz_interna_externa
 
 def calcular_envolvente_superior_inferior(nombre_cometa: str, fecha_inicial: str, beta: float)-> None:
@@ -55,7 +56,7 @@ def calcular_envolvente_superior_inferior(nombre_cometa: str, fecha_inicial: str
         # Curva de fase
         variable_a_graficar  = {'magnitud_reducida_con_fase': 'm(1, 1, α)'}
         titulo = f'Phase diagram of {nombre_cometa} - data from COBS'
-        crear_curvas_de_luz(nombre_cometa, 'phase', variable_a_graficar , curva_de_luz_procesada_df, titulo, titulo_eje_x = 'Phase')
+        crear_curva_de_fase(nombre_cometa, 'phase', variable_a_graficar , curva_de_luz_procesada_df, titulo)
 
         # Curva de luz externa
         variable_a_graficar  = {'magnitud_reducida':'Maximized m(1,1,0)'}
