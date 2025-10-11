@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 # Funciones
 from Modulos.Crear_carpetas.Crear_carpetas import crear_carpetas
 
-def curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_de_luz_interna_df, curva_de_luz_procesada_df = None, titulo = None, sobrepuestas = False):
+def generar_curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_de_luz_interna_df, curva_de_luz_procesada_df = None, titulo = None, sobrepuestas = False):
 
     ruta_archivos_graficas = crear_carpetas(nombre_cometa, titulo)
 
@@ -50,4 +50,4 @@ def curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_
     print(f'✅ Grafica interactiva: {titulo} creada.')
 
 if __name__ == '__main__':
-    curvas_de_luz_interna_externa()
+    generar_curvas_de_luz_interna_externa()

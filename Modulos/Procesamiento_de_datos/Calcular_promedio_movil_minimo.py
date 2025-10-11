@@ -1,4 +1,4 @@
-def promedio_movil_minimo(curva_de_luz_procesada_df: object, numero_elementos_grupo: int = 9) -> object:
+def calcular_promedio_movil_minimo(curva_de_luz_procesada_df: object, numero_elementos_grupo: int = 9) -> object:
     '''
     Calcula la curva de luz interna del cometa. Primero agrupando los datos por fecha, y tomando el valor maximo de magnitud reducida.
     Luego, calcula el promedio móvil de la magnitud reducida con una ventana centrada del tamaño especificado por numero_elementos_grupo.
@@ -15,4 +15,4 @@ def promedio_movil_minimo(curva_de_luz_procesada_df: object, numero_elementos_gr
     return curva_de_luz_interna_df
 
 if __name__ == '__main__':
-    promedio_movil_minimo()
+    calcular_promedio_movil_minimo()
