@@ -6,10 +6,10 @@ from Modulos.Manejo_de_errores.Verificar_conexion import verificar_conexion
 from Modulos.Manejo_de_errores.Verificar_cometa import verificar_cometa
 from Modulos.Manejo_de_errores.Verificar_fecha import verificar_fecha
 from Modulos.Coneccion_con_API.Conectar_con_API_de_COBS_Observaciones import conectar_con_API_de_COBS_Observaciones
-from Modulos.Procesamiento_de_datos.Tratamiento_de_datos_cometa import tratamiento_de_datos_cometa
+from Modulos.Procesamiento_de_datos.Extraer_datos_del_cometa import extraer_datos_del_cometa
 from Modulos.Coneccion_con_API.Conectar_con_API_de_MPC_Efemerides import descargar_efemerides
 from Modulos.Coneccion_con_API.Obtener_perihelio import obtener_perihelio
-from Modulos.Procesamiento_de_datos.Tratamiento_de_datos_con_efemerides import tratamiento_de_datos_con_efemerides
+from Modulos.Procesamiento_de_datos.Procesar_datos_con_efemerides import procesar_datos_con_efemerides
 from Modulos.Crear_carpetas.Crear_carpetas import crear_carpetas
 
 def generar_archivos(nombre_cometa: str, fecha_inicial: str, conectado_a_internet: bool) -> None:
@@ -25,7 +25,7 @@ def generar_archivos(nombre_cometa: str, fecha_inicial: str, conectado_a_interne
         content = conectar_con_API_de_COBS_Observaciones(nombre_cometa, fecha_inicial, conectado_a_internet)
 
         # Tratamiento de datos observacionales
-        curva_de_luz_cruda_df = tratamiento_de_datos_cometa(content)
+        curva_de_luz_cruda_df = extraer_datos_del_cometa(content)
 
         # Descargar efemérides
         efemerides_df = descargar_efemerides(nombre_cometa, curva_de_luz_cruda_df)
@@ -34,7 +34,7 @@ def generar_archivos(nombre_cometa: str, fecha_inicial: str, conectado_a_interne
         perihelio = obtener_perihelio(nombre_cometa, conectado_a_internet)
 
         # Tratamiento de datos con efemerides
-        curva_de_luz_procesada_df = tratamiento_de_datos_con_efemerides(curva_de_luz_cruda_df, efemerides_df, perihelio)
+        curva_de_luz_procesada_df = procesar_datos_con_efemerides(curva_de_luz_cruda_df, efemerides_df, perihelio)
 
         # Generar archivos txt
         

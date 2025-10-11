@@ -1,6 +1,6 @@
 import pandas as pd
 
-def tratamiento_de_datos_cometa(content):
+def extraer_datos_del_cometa(content):
 
     cometa_df = pd.DataFrame(content)
     
@@ -19,4 +19,4 @@ def tratamiento_de_datos_cometa(content):
     return curva_de_luz_cruda_df
 
 if __name__ == '__main__':
-    tratamiento_de_datos_cometa()
+    extraer_datos_del_cometa()
