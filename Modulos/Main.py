@@ -60,7 +60,6 @@ Ingrese aquí su elección: '''
 
                 if fecha_inicial != 'menu' and verificar_fecha(fecha_inicial):
                     beta = input('Ingrese el valor del β (beta) o, "menu" para regresar al inicio: ')
-
                     beta_num, beta_verificado = verificar_beta(beta) 
 
                     if beta != 'menu' and beta_verificado:
@@ -74,7 +73,11 @@ Ingrese aquí su elección: '''
                 fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "menu" para regresar al inicio: ')
 
                 if fecha_inicial != 'menu' and verificar_fecha(fecha_inicial):
-                    generar_archivos(nombre_cometa, fecha_inicial, conectado_a_internet)
+                    beta = input('Ingrese el valor del β (beta) o, "menu" para regresar al inicio: ')
+                    beta_num, beta_verificado = verificar_beta(beta) 
+
+                    if beta != 'menu' and beta_verificado:
+                        generar_archivos(nombre_cometa, fecha_inicial, conectado_a_internet, beta_num)
 
         # Finalizar programa
         elif opcion_elegida == opciones[-1]:
