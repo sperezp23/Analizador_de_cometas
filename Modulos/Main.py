@@ -13,14 +13,16 @@ def main() -> None:
     Realiza el llamado a los principales módulos del programa y controla la ejecución del mismo.
     '''
 
-    #  Variables
+    #  Inicialización de Variables
     opcion_elegida: str = '-1'
     opciones : str = 'i1234'
     mensaje_de_inicio: str = f'{'\n'*2}{'='*32}\n|| GENERADOR DE CURVAS DE LUZ ||\n{'='*32}'
-    texto_opciones : str  = f'''Elija una de las siguientes opciones:\n
+    texto_opciones : str  = f'''\nCopyright (c) 2025 Santiago Pérez Puerta / Grupo RAC. 
+Este código es propiedad de Santiago Pérez Puerta / Grupo RAC.\n
+Elija una de las siguientes opciones:\n
 [i] : Instrucciones (mostrar en pantalla las instrucciones del programa).\n
 [1] : Buscar el nombre de un cometa en la base de datos COBS.
-[2] : Graficar curvas de luz externa e internas (Envolvente Exterior e inferior).
+[2] : Graficar curvas de luz (Envolvente Superior e inferior).
 [3] : Generar archivo.
 [4] : Finalizar programa.\n
 Ingrese aquí su elección: '''
