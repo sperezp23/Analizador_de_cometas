@@ -1,7 +1,7 @@
 # Librerías
 from numpy import log10
 
-def procesar_datos_con_efemerides(curva_de_luz_cruda_df, efemerides_df, perihelio, beta = 0):
+def procesar_datos_con_efemerides(curva_de_luz_cruda_df, efemerides_df, perihelio, beta):
     
     # Unión de las bases de datos COBS y MPC
     curva_de_luz_procesada_df = curva_de_luz_cruda_df.merge(efemerides_df, on='obs_date')

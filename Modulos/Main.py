@@ -3,6 +3,7 @@ from Modulos.Manejo_de_errores.Verificar_conexion import verificar_conexion
 from Modulos.Lectura_de_archivos.Leer_instrucciones import leer_instrucciones
 from Modulos.Manejo_de_errores.Buscar_cometa import buscar_cometa
 from Modulos.Manejo_de_errores.Verificar_fecha import verificar_fecha
+from Modulos.Manejo_de_errores.Verificar_beta import verificar_beta
 from Modulos.Procesamiento_de_datos.Calcular_envolvente_superior_inferior import calcular_envolvente_superior_inferior
 from Modulos.Generar_archivos.Generar_archivos import generar_archivos
 
@@ -56,7 +57,10 @@ Ingrese aquí su elección: '''
                 fecha_inicial = input('Ingrese la fecha inicial para el análisis en el formato AAAA-MM-DD o, "menu" para regresar al inicio: ')
 
                 if fecha_inicial != 'menu' and verificar_fecha(fecha_inicial):
-                    calcular_envolvente_superior_inferior(nombre_cometa, fecha_inicial)
+                    beta = input('Ingrese el valor del β (beta) o, "menu" para regresar al inicio: ')
+
+                    if beta != 'menu' and verificar_beta(beta):
+                        calcular_envolvente_superior_inferior(nombre_cometa, fecha_inicial, beta)
 
         # Generar archivo
         elif opcion_elegida == '3':
