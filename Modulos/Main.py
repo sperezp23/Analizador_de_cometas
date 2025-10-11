@@ -59,8 +59,10 @@ Ingrese aquí su elección: '''
                 if fecha_inicial != 'menu' and verificar_fecha(fecha_inicial):
                     beta = input('Ingrese el valor del β (beta) o, "menu" para regresar al inicio: ')
 
-                    if beta != 'menu' and verificar_beta(beta):
-                        calcular_envolvente_superior_inferior(nombre_cometa, fecha_inicial, beta)
+                    beta_num, beta_verificado = verificar_beta(beta) 
+
+                    if beta != 'menu' and beta_verificado:
+                        calcular_envolvente_superior_inferior(nombre_cometa, fecha_inicial, beta_num)
 
         # Generar archivo
         elif opcion_elegida == '3':

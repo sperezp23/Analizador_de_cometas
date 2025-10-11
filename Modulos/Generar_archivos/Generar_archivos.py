@@ -50,7 +50,7 @@ def generar_archivos(nombre_cometa: str, fecha_inicial: str, conectado_a_interne
         archivo_curva_de_luz_procesada_df['alpha'] = curva_de_luz_procesada_df.phase
         archivo_curva_de_luz_procesada_df['MAG'] = curva_de_luz_procesada_df.magnitude.round(2)
         archivo_curva_de_luz_procesada_df['m(1,1,0)'] = curva_de_luz_procesada_df.magnitud_reducida.round(2)
-        archivo_curva_de_luz_procesada_df['m(1,1,alpha)'] = curva_de_luz_procesada_df.magnitud_reducida.round(2)
+        archivo_curva_de_luz_procesada_df['m(1,1,alpha)'] = curva_de_luz_procesada_df.magnitud_reducida_con_phase.round(2)
 
         nombre_archivo = f'Datos_procesados_cometa_{nombre_cometa}_COBS'
 
