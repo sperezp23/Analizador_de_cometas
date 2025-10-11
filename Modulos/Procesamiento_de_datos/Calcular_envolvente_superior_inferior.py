@@ -53,7 +53,7 @@ def calcular_envolvente_superior_inferior(nombre_cometa: str, fecha_inicial: str
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_procesada_df, titulo)
 
         # Curva de fase
-        variable_a_graficar  = {'magnitud_reducida_con_fase': r'$m(1, 1, \alpha)$'}
+        variable_a_graficar  = {'magnitud_reducida_con_fase': 'm(1, 1, α)'}
         titulo = f'Phase diagram of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'phase', variable_a_graficar , curva_de_luz_procesada_df, titulo, titulo_eje_x = 'Phase')
 
