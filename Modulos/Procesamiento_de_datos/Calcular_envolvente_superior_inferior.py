@@ -43,47 +43,53 @@ def calcular_envolvente_superior_inferior(nombre_cometa: str, fecha_inicial: str
         curva_de_luz_interna_df = calcular_promedio_movil_minimo(curva_de_luz_procesada_df)
 
         # Curva de luz cruda
-        variable_a_graficar  = {'magnitude': r'$m(\Delta, R, \alpha)$'}
+        variable_a_graficar  = {'magnitude': 'm(Δ, R, α)'}
         titulo = f'Crude lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'obs_date', variable_a_graficar , curva_de_luz_cruda_df, titulo, titulo_eje_x = 'Observation Date')
 
+        # Curva de fase
+        if beta == 0:
+            alpha = 'α' # Extraer el data para los titulos
+
+            variable_a_graficar  = {'magnitud_reducida': 'm(1, 1, α)'}
+            titulo = f'Phase diagram of {nombre_cometa} - data from COBS'
+            crear_curvas_de_luz(nombre_cometa, 'phase', variable_a_graficar , curva_de_luz_procesada_df, titulo, titulo_eje_x = 'α [°]')
+        
+        elif beta != 0:
+            alpha = 0 # Extraer el data para los titulos
+
         # Curva de luz reducida
-        variable_a_graficar  = {'magnitud_reducida' :'m(1,1,0)'}
+        variable_a_graficar  = {'magnitud_reducida' :f'm(1, 1, {alpha})'}
         titulo = f'Reduced lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_procesada_df, titulo)
 
-        # Curva de fase
-        variable_a_graficar  = {'magnitud_reducida_con_fase': 'm(1, 1, α)'}
-        titulo = f'Phase diagram of {nombre_cometa} - data from COBS'
-        crear_curvas_de_luz(nombre_cometa, 'phase', variable_a_graficar , curva_de_luz_procesada_df, titulo, titulo_eje_x = 'Phase')
-
         # Curva de luz externa
-        variable_a_graficar  = {'magnitud_reducida':'Maximized m(1,1,0)'}
+        variable_a_graficar  = {'magnitud_reducida':f'Maximized m(1, 1, {alpha})'}
         titulo = f'Maximized external lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_externa_df, titulo)
 
         # Envolvente superior
-        variable_a_graficar = {'promedio_movil':'Averaged m(1,1,0)'}
+        variable_a_graficar = {'promedio_movil':f'Averaged m(1, 1, {alpha})'}
         titulo = f'Averaged external lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_externa_df, titulo, promediada = True, color= '#FFEE00')
 
         # Curva de luz interna
-        variable_a_graficar  = {'magnitud_reducida':'Minimized m(1,1,0)'}
+        variable_a_graficar  = {'magnitud_reducida':f'Minimized m(1, 1, {alpha})'}
         titulo = f'Minimized internal lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_interna_df, titulo)
 
         # Envolvente inferior
-        variable_a_graficar = {'promedio_movil':'Averaged m(1,1,0)'}
+        variable_a_graficar = {'promedio_movil':f'Averaged m(1, 1, {alpha})'}
         titulo = f'Averaged internal lightcurve of {nombre_cometa} - data from COBS'
         crear_curvas_de_luz(nombre_cometa, 'delta_t', variable_a_graficar , curva_de_luz_interna_df, titulo, promediada = True, color= 'red')
 
         # Generar Curva de luz interna y externa
         titulo = f'Max/Min Averaged Lightcurve of comet {nombre_cometa} data from COBS'
-        generar_curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_de_luz_interna_df, titulo=titulo)
+        generar_curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_de_luz_interna_df, titulo=titulo, alpha= alpha)
 
         # Generar Curva de luz interna y externa sobrepuesta con la curva de luz procesada
         titulo = f'Max/Min/Reduced Lightcurve of comet {nombre_cometa} data from COBS'
-        generar_curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_de_luz_interna_df, curva_de_luz_procesada_df, titulo=titulo, sobrepuestas=True)
+        generar_curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df, curva_de_luz_interna_df, curva_de_luz_procesada_df, titulo=titulo, sobrepuestas=True, alpha= alpha)
 
         # Numero de registros obtenidos
         filas, __ = curva_de_luz_cruda_df.shape
