@@ -18,6 +18,7 @@ def crear_curva_de_fase(nombre_cometa, variable_x, variable_y, data_frame, titul
 
     labels.update(variable_y)
 
+    plt.gca().invert_yaxis()  # Invertir el eje y
     plt.title(titulo)
     plt.xlabel('Phase')
     plt.ylabel(list(variable_y.values())[0])

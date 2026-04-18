@@ -11,6 +11,10 @@ def crear_curvas_de_luz(nombre_cometa, variable_x, variable_y, data_frame, titul
     # Crear carpetas
     ruta_archivos_graficas = crear_carpetas(nombre_cometa, titulo)
 
+    # Reiniciar estado de matplotlib para evitar que queden datos de la gráfica anterior
+    plt.close('all')
+    plt.figure()
+
     variable_a_graficar = list(variable_y.keys())[0]
 
     labels = {
@@ -47,6 +51,9 @@ def crear_curvas_de_luz(nombre_cometa, variable_x, variable_y, data_frame, titul
 
     plt.savefig(ruta_archivos_graficas.replace('html', 'png'), dpi=300)
     print(f'✅ Grafica estática: {titulo} creada.')
+
+    # Cerrar la figura de matplotlib para liberar estado y evitar datos residuales
+    plt.close()
 
     fig.write_html(ruta_archivos_graficas.replace('png', 'html'))
     print(f'✅ Grafica interactiva: {titulo} creada.')
