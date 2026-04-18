@@ -47,7 +47,6 @@ def crear_curvas_de_luz(nombre_cometa, variable_x, variable_y, data_frame, titul
 
     plt.savefig(ruta_archivos_graficas.replace('html', 'png'), dpi=300)
     print(f'✅ Grafica estática: {titulo} creada.')
-    plt.show()
 
     fig.write_html(ruta_archivos_graficas.replace('png', 'html'))
     print(f'✅ Grafica interactiva: {titulo} creada.')

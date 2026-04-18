@@ -40,8 +40,6 @@ def generar_curvas_de_luz_interna_externa(nombre_cometa, curva_de_luz_externa_df
     plt.savefig(ruta_archivos_graficas.replace('html', 'png'), dpi=300)
     print(f'✅ Grafica estática: {titulo} creada.')
 
-    # Mostrar el gráfico
-    plt.show()
 
     fig.update_yaxes(autorange='reversed')
     fig.update_layout(template='plotly_dark', xaxis_title='t-Tq', yaxis_title='Average m(1,1,0)', title = titulo)
