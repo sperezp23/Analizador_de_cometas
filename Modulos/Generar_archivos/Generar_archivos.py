@@ -10,6 +10,9 @@ from Modulos.Procesamiento_de_datos.Extraer_datos_del_cometa import extraer_dato
 from Modulos.Coneccion_con_API.Conectar_con_API_de_MPC_Efemerides import descargar_efemerides
 from Modulos.Coneccion_con_API.Obtener_perihelio import obtener_perihelio
 from Modulos.Procesamiento_de_datos.Procesar_datos_con_efemerides import procesar_datos_con_efemerides
+from Modulos.Procesamiento_de_datos.Calcular_promedio_movil_maximo import calcular_promedio_movil_maximo
+from Modulos.Procesamiento_de_datos.Calcular_promedio_movil_minimo import calcular_promedio_movil_minimo
+from Modulos.Generar_archivos.Guardar_archivos import guardar_archivo
 from Modulos.Crear_carpetas.Crear_carpetas import crear_carpetas
 
 def generar_archivos(nombre_cometa: str, fecha_inicial: str, conectado_a_internet: bool, beta: float) -> None:
@@ -36,9 +39,12 @@ def generar_archivos(nombre_cometa: str, fecha_inicial: str, conectado_a_interne
         # Tratamiento de datos con efemerides
         curva_de_luz_procesada_df = procesar_datos_con_efemerides(curva_de_luz_cruda_df, efemerides_df, perihelio, beta)
 
-        # Generar archivos txt
-        
-        print('⏳ Generando archivo de datos procesados.')
+        # Promedio movil maximo y minimo
+        curva_de_luz_externa_df = calcular_promedio_movil_maximo(curva_de_luz_procesada_df)
+        curva_de_luz_interna_df = calcular_promedio_movil_minimo(curva_de_luz_procesada_df)
+
+        # Generar archivos txt de datos procesados
+        print('⏳ Generando archivos.')
 
         archivo_curva_de_luz_procesada_df = DataFrame()
         archivo_curva_de_luz_procesada_df['Year'] = curva_de_luz_procesada_df.obs_date.dt.year
@@ -57,7 +63,47 @@ def generar_archivos(nombre_cometa: str, fecha_inicial: str, conectado_a_interne
         ruta_archivos = crear_carpetas(nombre_cometa, nombre_archivo = nombre_archivo, carpeta_base='Bases_de_datos', tipo_archivo= 'txt')
         archivo_curva_de_luz_procesada_df.to_csv(ruta_archivos, index=False, sep='\t')
 
-        print(f'✅ Archivo de datos procesados creado.')
+        print(f'✅ Archivos de datos procesados creado.')
+
+        # Generar archivos txt de datos promediados maximo
+        archivo_nucleo_df = DataFrame()
+        archivo_nucleo_df['Year'] = curva_de_luz_externa_df.obs_date.dt.year
+        archivo_nucleo_df['Month'] = curva_de_luz_externa_df.obs_date.dt.month
+        archivo_nucleo_df['Day'] = curva_de_luz_externa_df.obs_date.dt.day
+        archivo_nucleo_df['t-Tq'] = curva_de_luz_externa_df.delta_t
+        archivo_nucleo_df['delta'] = curva_de_luz_externa_df.delta.round(3)
+        archivo_nucleo_df['R'] = curva_de_luz_externa_df.r.round(3)
+        archivo_nucleo_df['alpha'] = curva_de_luz_externa_df.phase
+        archivo_nucleo_df['MAG'] = curva_de_luz_externa_df.magnitude.round(2)
+        archivo_nucleo_df['m(1,1,0)'] = curva_de_luz_externa_df.magnitud_reducida.round(2)
+        archivo_nucleo_df['m(1,1,alpha)'] = curva_de_luz_externa_df.magnitud_reducida_con_fase.round(2)
+
+        nombre_archivo = f'Coma_{nombre_cometa}_COBS'
+
+        ruta_archivos = crear_carpetas(nombre_cometa, nombre_archivo = nombre_archivo, carpeta_base='Bases_de_datos', tipo_archivo= 'txt')
+        archivo_nucleo_df.to_csv(ruta_archivos, index=False, sep='\t')
+
+        print(f'✅ Archivos de datos de la coma creado.')
+
+        # Generar archivos txt de datos promediados minimo
+        archivo_nucleo_df = DataFrame()
+        archivo_nucleo_df['Year'] = curva_de_luz_interna_df.obs_date.dt.year
+        archivo_nucleo_df['Month'] = curva_de_luz_interna_df.obs_date.dt.month
+        archivo_nucleo_df['Day'] = curva_de_luz_interna_df.obs_date.dt.day
+        archivo_nucleo_df['t-Tq'] = curva_de_luz_interna_df.delta_t
+        archivo_nucleo_df['delta'] = curva_de_luz_interna_df.delta.round(3)
+        archivo_nucleo_df['R'] = curva_de_luz_interna_df.r.round(3)
+        archivo_nucleo_df['alpha'] = curva_de_luz_interna_df.phase
+        archivo_nucleo_df['MAG'] = curva_de_luz_interna_df.magnitude.round(2)
+        archivo_nucleo_df['m(1,1,0)'] = curva_de_luz_interna_df.magnitud_reducida.round(2)
+        archivo_nucleo_df['m(1,1,alpha)'] = curva_de_luz_interna_df.magnitud_reducida_con_fase.round(2)
+
+        nombre_archivo = f'Nucleo_{nombre_cometa}_COBS'
+
+        ruta_archivos = crear_carpetas(nombre_cometa, nombre_archivo = nombre_archivo, carpeta_base='Bases_de_datos', tipo_archivo= 'txt')
+        archivo_nucleo_df.to_csv(ruta_archivos, index=False, sep='\t')
+
+        print(f'✅ Archivos de datos de la núcleo creado.')
 
         # Numero de registros obtenidos
         filas, __ = curva_de_luz_cruda_df.shape
